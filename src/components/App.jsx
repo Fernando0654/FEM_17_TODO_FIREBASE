@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FiSun } from "react-icons/fi";
 import { HiMoon } from "react-icons/hi";
 // Styles
 import "../sass/index.scss";
+// Firestore
+import { collection, getDocs } from "firebase/firestore";
+import store from '../firebase/firebase.config';
 
 const App = () => {
+    useEffect(() => {
+        const getData = async () => {
+            const tasks = await getDocs(collection(store, "tasks"));
+            tasks.forEach((doc) => {
+                console.log(doc.data());
+            });
+        }
+        getData();
+    }, [])
     return (
         <>
             <div className="header-task">
@@ -15,7 +27,7 @@ const App = () => {
                 </div>
                 <div className="add-task">
                     <label htmlFor="task">Currently typing</label>
-                    <input type="text" name="task" id="task" placeholder="Type Something..." />
+                    <input type="text" name="task" id="task" placeholder="Create a new task..." />
                 </div>
                 <div className="list-task">
                     <div className="task-item">

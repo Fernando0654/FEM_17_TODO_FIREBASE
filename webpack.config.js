@@ -1,5 +1,6 @@
 const path = require("path");
 const htmlWebpackPlugin = require("html-webpack-plugin");
+const webpack = require('webpack');
 
 module.exports = {
   entry: ["babel-polyfill", "./src/index.js"],
@@ -42,6 +43,11 @@ module.exports = {
         type: "asset",
         test: /\.(svg|jpg|png)$/,
       },
+      {
+        test: /\.js$/,
+        enforce: 'pre',
+        use: ['source-map-loader'],
+      },
     ],
   },
   devServer: {
@@ -52,5 +58,13 @@ module.exports = {
       template: "./public/index.html",
       filename: "./index.html",
     }),
+    new webpack.DefinePlugin({
+      'process.env.REACT_APP_FIREBASE_APIKEY': JSON.stringify(process.env.REACT_APP_FIREBASE_APIKEY),
+      'process.env.REACT_APP_FIREBASE_AUTHDOMAIN': JSON.stringify(process.env.REACT_APP_FIREBASE_AUTHDOMAIN),
+      'process.env.REACT_APP_FIREBASE_PROJECTID': JSON.stringify(process.env.REACT_APP_FIREBASE_PROJECTID),
+      'process.env.REACT_APP_FIREBASE_STORAGEBUCKET': JSON.stringify(process.env.REACT_APP_FIREBASE_STORAGEBUCKET),
+      'process.env.REACT_APP_FIREBASE_MESSAGINGSENDERID': JSON.stringify(process.env.REACT_APP_FIREBASE_MESSAGINGSENDERID),
+      'process.env.REACT_APP_FIREBASE_APPID': JSON.stringify(process.env.REACT_APP_FIREBASE_APPID),
+    })
   ],
 };

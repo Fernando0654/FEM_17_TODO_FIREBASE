@@ -2,21 +2,25 @@ import React, { useEffect, useState } from 'react';
 import { FiSun } from "react-icons/fi";
 import { HiMoon } from "react-icons/hi";
 // Styles
-import "../sass/index.scss";
+import "./sass/index.scss";
 // Firestore
 import { collection, getDocs } from "firebase/firestore";
-import store from '../firebase/firebase.config';
+import store from './firebase/firebase.config';
+// Components
+import ListComponent from './components/list.component';
 
 const App = () => {
+    const [Tasks, setTasks] = useState([]);
     useEffect(() => {
         const getData = async () => {
             const tasks = await getDocs(collection(store, "tasks"));
             tasks.forEach((doc) => {
-                console.log(doc.data());
+                setTasks(Tasks => [...Tasks, doc.data()]);
             });
         }
         getData();
-    }, [])
+    }, []);
+    
     return (
         <>
             <div className="header-task">
@@ -26,30 +30,13 @@ const App = () => {
                     <HiMoon />
                 </div>
                 <div className="add-task">
-                    <label htmlFor="task">Currently typing</label>
+                    <label htmlFor="task">Type</label>
                     <input type="text" name="task" id="task" placeholder="Create a new task..." />
                 </div>
-                <div className="list-task">
-                    <div className="task-item">
-                        <label htmlFor="task-1">Task 1</label>
-                        <input type="checkbox" id="task-1" />
-                    </div>
-                    <div className="task-item">
-                        <label htmlFor="task-2">Task 2</label>
-                        <input type="checkbox" id="task-2" />
-                    </div>
-                    <div className="task-item">
-                        <label htmlFor="task-3">Task 3</label>
-                        <input type="checkbox" id="task-3" />
-                    </div>
-                    <div className="task-item">
-                        <label htmlFor="task-4">Task 4</label>
-                        <input type="checkbox" id="task-4" />
-                    </div>
-                </div>
+                <ListComponent list={Tasks} />
                 <div className="config-task">
                     <div className="counting-items">
-                        <span>5 Items left</span>
+                        <span>{Tasks.length} Items left</span>
                     </div>
                     <div className="filter-items">
                         <button>All</button>

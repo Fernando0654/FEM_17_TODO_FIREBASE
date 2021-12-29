@@ -1,26 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import { FiSun } from "react-icons/fi";
 import { HiMoon } from "react-icons/hi";
 // Styles
 import "./sass/index.scss";
 // Firestore
-import { collection, getDocs } from "firebase/firestore";
-import store from './firebase/firebase.config';
+import { collection, deleteDoc, doc, onSnapshot } from "firebase/firestore";
+import store from "./firebase/firebase.config";
 // Components
-import ListComponent from './components/list.component';
+import AddComponent from "./components/add.component";
+import ListComponent from "./components/list.component";
+import ConfigComponent from "./components/config.component";
 
 const App = () => {
     const [Tasks, setTasks] = useState([]);
     useEffect(() => {
-        const getData = async () => {
-            const tasks = await getDocs(collection(store, "tasks"));
-            tasks.forEach((doc) => {
-                setTasks(Tasks => [...Tasks, doc.data()]);
-            });
-        }
-        getData();
+        onSnapshot(collection(store, "tasks"), (snapshot) => {
+            setTasks(snapshot.docs.map((doc) => doc.data()));
+        });
+        console.log(Tasks)
     }, []);
-    
+
     return (
         <>
             <div className="header-task">
@@ -29,25 +28,10 @@ const App = () => {
                     <FiSun />
                     <HiMoon />
                 </div>
-                <div className="add-task">
-                    <label htmlFor="task">Type</label>
-                    <input type="text" name="task" id="task" placeholder="Create a new task..." />
-                </div>
-                <ListComponent list={Tasks} />
-                <div className="config-task">
-                    <div className="counting-items">
-                        <span>{Tasks.length} Items left</span>
-                    </div>
-                    <div className="filter-items">
-                        <button>All</button>
-                        <button>Active</button>
-                        <button>Completed</button>
-                    </div>
-                    <div className="delete-items">
-                        <button>Clear Completed</button>
-                    </div>
-                </div>
             </div>
+            <AddComponent countTask={Tasks.length} />
+            <ListComponent list={Tasks} />
+            <ConfigComponent numTasks={Tasks.length} />
             <div className="footer-task">
                 <span>Drag and drop to reorder list</span>
             </div>

@@ -12,7 +12,7 @@ const List = ({ list }) => {
         if (!destination) return;
         if (destination.index === source.index
             && destination.droppableId === source.droppableId) return;
-        setList( List => reorder(List, source.index, destination.index));
+        setList(List => reorder(List, source.index, destination.index));
     }
 
     const reorder = (list, sourceIndex, destinationIndex) => {
@@ -20,6 +20,11 @@ const List = ({ list }) => {
         const [removed] = result.splice(sourceIndex, 1);
         result.splice(destinationIndex, 0, removed);
         return result;
+    }
+
+    const updateCompleted = (e) => {
+        const filtrado = List.filter( (item) => item.index.toString() !== e.target.id)
+        console.log(filtrado);
     }
     return (
         List ?
@@ -30,7 +35,6 @@ const List = ({ list }) => {
                         {...droppableProvider.droppableProps}
                         ref={droppableProvider.innerRef}
                         className="list-task">
-
                         {
                             List.map((task, id) => (
                                 <Draggable
@@ -43,8 +47,12 @@ const List = ({ list }) => {
                                             ref={draggableProvider.innerRef}
                                             {...draggableProvider.dragHandleProps}
                                             className="task-item">
-                                            <label htmlFor="task-1">{task.task}</label>
-                                            <input type="checkbox" id="task-1" />
+                                            <label htmlFor={task.index}>{task.task}</label>
+                                            <input
+                                                type="checkbox"
+                                                id={task.index}
+                                                defaultChecked={task.completed} 
+                                                onChange={updateCompleted}/>
                                         </div>
                                     )}
                                 </Draggable>

@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
-const List = ({ list }) => {
+const List = ({ list, completedItems }) => {
     const [List, setList] = useState(null);
+    const [Completed, setCompleted] = useState([]);
     useEffect(() => {
         setList(list);
     }, [list]);
+    useEffect(() => {
+        completedItems(Completed);
+    }, [Completed])
 
     const handleDrag = (result) => {
         const { source, destination } = result;
@@ -23,8 +27,14 @@ const List = ({ list }) => {
     }
 
     const updateCompleted = (e) => {
-        const filtrado = List.filter( (item) => item.index.toString() !== e.target.id)
-        console.log(filtrado);
+        if (!e.target.checked) {
+            const index = Completed.indexOf(e.target.id);
+            if (index > -1) {
+                Completed.splice(index, 1);
+            }
+            return;
+        }
+        setCompleted([...Completed, e.target.id]);
     }
     return (
         List ?
@@ -47,12 +57,12 @@ const List = ({ list }) => {
                                             ref={draggableProvider.innerRef}
                                             {...draggableProvider.dragHandleProps}
                                             className="task-item">
-                                            <label htmlFor={task.index}>{task.task}</label>
+                                            <label htmlFor={task.id}>{task.task}</label>
                                             <input
                                                 type="checkbox"
-                                                id={task.index}
-                                                defaultChecked={task.completed} 
-                                                onChange={updateCompleted}/>
+                                                id={task.id}
+                                                defaultChecked={task.completed}
+                                                onChange={updateCompleted} />
                                         </div>
                                     )}
                                 </Draggable>

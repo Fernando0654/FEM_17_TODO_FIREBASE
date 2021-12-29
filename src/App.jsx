@@ -13,12 +13,19 @@ import ConfigComponent from "./components/config.component";
 
 const App = () => {
     const [Tasks, setTasks] = useState([]);
+    const [Id, setId] = useState(null);
     useEffect(() => {
         onSnapshot(collection(store, "tasks"), (snapshot) => {
-            setTasks(snapshot.docs.map((doc) => doc.data()));
+            let temp = [];
+            snapshot.docs.forEach((doc) => {
+                temp.push({...doc.data(), id: doc.id});
+            });
+            setTasks(temp);     
+            // setTasks(snapshot.docs.map(doc => (doc.data())));
         });
-        console.log(Tasks)
     }, []);
+
+    const setCompleted = (newId) => (setId(newId));
 
     return (
         <>
@@ -30,8 +37,8 @@ const App = () => {
                 </div>
             </div>
             <AddComponent countTask={Tasks.length} />
-            <ListComponent list={Tasks} />
-            <ConfigComponent numTasks={Tasks.length} />
+            <ListComponent list={Tasks} completedItems={setCompleted} />
+            <ConfigComponent numTasks={Tasks.length} completed={Id} />
             <div className="footer-task">
                 <span>Drag and drop to reorder list</span>
             </div>

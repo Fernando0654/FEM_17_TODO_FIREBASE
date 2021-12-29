@@ -3,9 +3,9 @@ import React from 'react';
 import { collection, deleteDoc, doc } from 'firebase/firestore';
 import store from '../firebase/firebase.config';
 
-const Config = ({numTasks}) => {
+const Config = ({ numTasks, completed }) => {
     const clearCompleted = async () => {
-       
+        completed.forEach(item => deleteDoc(doc(store, "tasks", item)))
     }
     return (
         <div className="config-task">

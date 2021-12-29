@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { FiSun } from "react-icons/fi";
-import { HiMoon } from "react-icons/hi";
 // Styles
 import "./sass/index.scss";
 // Firestore
@@ -10,6 +8,8 @@ import store from "./firebase/firebase.config";
 import AddComponent from "./components/add.component";
 import ListComponent from "./components/list.component";
 import ConfigComponent from "./components/config.component";
+import HeaderComponent from "./components/header.component";
+import FooterComponent from "./components/footer.component";
 
 const App = () => {
     const [Tasks, setTasks] = useState([]);
@@ -18,9 +18,9 @@ const App = () => {
         onSnapshot(collection(store, "tasks"), (snapshot) => {
             let temp = [];
             snapshot.docs.forEach((doc) => {
-                temp.push({...doc.data(), id: doc.id});
+                temp.push({ ...doc.data(), id: doc.id });
             });
-            setTasks(temp);     
+            setTasks(temp);
             // setTasks(snapshot.docs.map(doc => (doc.data())));
         });
     }, []);
@@ -29,19 +29,11 @@ const App = () => {
 
     return (
         <>
-            <div className="header-task">
-                <h1>TODO</h1>
-                <div className="theme-box">
-                    <FiSun />
-                    <HiMoon />
-                </div>
-            </div>
+            <HeaderComponent />
             <AddComponent countTask={Tasks.length} />
             <ListComponent list={Tasks} completedItems={setCompleted} />
             <ConfigComponent numTasks={Tasks.length} completed={Id} />
-            <div className="footer-task">
-                <span>Drag and drop to reorder list</span>
-            </div>
+            <FooterComponent />
         </>
     )
 }

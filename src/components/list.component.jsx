@@ -37,9 +37,10 @@ const List = ({ list, completedItems }) => {
         setCompleted([...Completed, e.target.id]);
     }
     return (
+
         List ?
             <DragDropContext onDragEnd={(result => handleDrag(result))}>
-                <Droppable droppableId="task">
+                <Droppable droppableId="task" key={List.lenght}>
                     {(droppableProvider) =>
                     (<div
                         {...droppableProvider.droppableProps}
@@ -50,7 +51,7 @@ const List = ({ list, completedItems }) => {
                                 <Draggable
                                     draggableId={task.index.toString()}
                                     index={id}
-                                    key={task.index}>
+                                    key={task.id}>
                                     {(draggableProvider) => (
                                         <div
                                             {...draggableProvider.draggableProps}

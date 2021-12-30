@@ -1,0 +1,32 @@
+@use "../util/colors" as color;
+
+.list-task {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 1.5em;
+    border-radius: 6px;
+    .task-item {
+        display: block;
+        width: 100%;
+        color: #fff;
+        font-family: 'Josefin Sans', sans-serif;
+        padding: 1em 0em;
+        border-top: 1px solid color.$veryDarkGrayishBlueDarker;
+        background-color: color.$veryDarkDesaturatedBlue;
+        position: relative;
+        label {
+            margin-left: 1em;
+            &::after {
+                left: 9px;
+                top: 5px;
+                width: 50px;
+                height: 10px;
+                border: solid white;
+                border-width: 0 3px 3px 0;
+            }
+        }
+    }
+}

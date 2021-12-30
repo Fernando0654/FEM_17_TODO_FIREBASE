@@ -10,6 +10,9 @@ import ListComponent from "./components/list.component";
 import ConfigComponent from "./components/config.component";
 import HeaderComponent from "./components/header.component";
 import FooterComponent from "./components/footer.component";
+// Img
+import HeaderDark from "./assets/img/bg-mobile-dark.jpg";
+import HeaderLight from "./assets/img/bg-mobile-dark.jpg";
 
 const App = () => {
     const [Tasks, setTasks] = useState([]);
@@ -29,11 +32,15 @@ const App = () => {
 
     return (
         <>
+        <img src={HeaderDark} alt="" />
+        <div className="content">
+            
             <HeaderComponent />
             <AddComponent countTask={Tasks.length} />
             <ListComponent list={Tasks} completedItems={setCompleted} />
             <ConfigComponent numTasks={Tasks.length} completed={Id} />
             <FooterComponent />
+        </div>
         </>
     )
 }

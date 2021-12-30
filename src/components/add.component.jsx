@@ -15,8 +15,8 @@ const Add = ({ countTask }) => {
     }
     return (
         <form className="add-task" onSubmit={addTask}>
-            <label htmlFor="task">Type</label>
-            <input type="text" name="task" id="task" placeholder="Create a new task..." />
+            <label htmlFor="task"></label>
+            <input type="text" id="task" placeholder="Create a new task..." />
         </form>
     )
 }

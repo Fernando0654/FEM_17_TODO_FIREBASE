@@ -16,7 +16,7 @@ const Config = ({ numTasks, completed }) => {
                 </div>
             </div>
             <div className="filter-items">
-                <button>All</button>
+                <button className="active">All</button>
                 <button>Active</button>
                 <button>Completed</button>
             </div>

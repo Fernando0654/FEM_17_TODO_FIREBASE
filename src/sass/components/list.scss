@@ -24,6 +24,7 @@
             background-color: color.$veryDarkDesaturatedBlue;
             cursor: grab;
             color: color.$lightGrayishBlue;
+            transition: 1s ease;
             .icon {
                 width: 15px;
                 height: 15px;
@@ -36,6 +37,7 @@
             }
             span {
                 font-size: 0.8rem;
+                font-weight: 700;
             }
         }
         input[type="checkbox"] {
@@ -51,6 +53,22 @@
             top: 50%;
             transform: translate(-50%, -50%);
             color: color.$veryDarkGrayishBlue;
+        }
+    }
+}
+
+.content.light {
+    .list-task {
+        .task-item {
+            color: color.$veryDarkGrayishBlue;
+            label {
+                border-top: color.$darkGrayishBlue;
+                background-color: color.$veryLightGray;
+                color: color.$darkGrayishBlue;
+            }
+            .icon {
+                color: color.$veryLightGray;
+            }
         }
     }
 }

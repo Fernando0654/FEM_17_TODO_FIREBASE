@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+// Icon
+import { BsCheck } from "react-icons/bs";
+import { VscChromeClose } from "react-icons/vsc";
 
 const List = ({ list, completedItems }) => {
     const [List, setList] = useState(null);
@@ -9,7 +12,7 @@ const List = ({ list, completedItems }) => {
     }, [list]);
     useEffect(() => {
         completedItems(Completed);
-    }, [Completed])
+    }, [Completed]);
 
     const handleDrag = (result) => {
         const { source, destination } = result;
@@ -37,7 +40,6 @@ const List = ({ list, completedItems }) => {
         setCompleted([...Completed, e.target.id]);
     }
     return (
-
         List ?
             <DragDropContext onDragEnd={(result => handleDrag(result))}>
                 <Droppable droppableId="task" key={List.lenght}>
@@ -58,12 +60,16 @@ const List = ({ list, completedItems }) => {
                                             ref={draggableProvider.innerRef}
                                             {...draggableProvider.dragHandleProps}
                                             className="task-item">
-                                            <label htmlFor={task.id}>{task.task}</label>
                                             <input
                                                 type="checkbox"
                                                 id={task.id}
                                                 defaultChecked={task.completed}
                                                 onChange={updateCompleted} />
+                                            <label htmlFor={task.id}>
+                                                <BsCheck className="icon" />
+                                                <span>{task.task}</span>
+                                            </label>
+                                            <VscChromeClose className="icon-close" />
                                         </div>
                                     )}
                                 </Draggable>

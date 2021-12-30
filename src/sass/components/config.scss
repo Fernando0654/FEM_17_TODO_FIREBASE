@@ -1,0 +1,55 @@
+@use "../util/colors" as color;
+
+.config-task {
+    display: block;
+    font-family: 'Josefin Sans', sans-serif;
+    .counting-items {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        background-color: color.$veryDarkDesaturatedBlue;
+        margin-bottom: 1em;
+        border-top: 1px solid color.$veryDarkGrayishBlueDarker;
+        padding: 0.9em 0em;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+        span {
+            display: block;
+            width: 45%;
+            color: color.$darkGrayishBlue;
+            font-size: 0.8rem;
+        }
+        .delete-items {
+            display: flex;
+            justify-content: flex-end;
+            width: 45%;
+            button {
+                background-color: transparent;
+                border: none;
+                color: color.$darkGrayishBlue;
+                font-family: 'Josefin Sans', sans-serif;
+                cursor: pointer;
+            }
+        }
+    }
+    .filter-items {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        background-color: color.$veryDarkDesaturatedBlue;
+        padding: 0.9em 0em;
+        button {
+            display: block;
+            background-color: transparent;
+            border: none;
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 1rem;
+            color: color.$darkGrayishBlue;
+            font-weight: 700;
+            cursor: pointer;
+        }
+    }
+}

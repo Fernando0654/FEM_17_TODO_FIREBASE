@@ -16,20 +16,24 @@ import HeaderDarkMobile from "./assets/img/bg-mobile-dark.jpg";
 import HeaderDarkDesktop from "./assets/img/bg-desktop-dark.jpg";
 import HeaderLightMobile from "./assets/img/bg-mobile-light.jpg";
 import HeaderLightDesktop from "./assets/img/bg-desktop-light.jpg";
+// Icon
+import { BiLoaderAlt } from "react-icons/bi";
 
 const App = () => {
     const [Tasks, setTasks] = useState([]);
     const [TasksAll, setTasksAll] = useState([]);
     const [Theme, setTheme] = useState("dark");
     const [Id, setId] = useState(null);
-    const [CurrentFilter, setCurrentFilter] = useState("");
-    const [Msg, setMsg] = useState(null);
+    const [CurrentFilter, setCurrentFilter] = useState("all");
+    const [Reset, setReset] = useState(false);
+    const [Loading, setLoading] = useState(true);
     useEffect(() => {
         onSnapshot(collection(store, "tasks"), (snapshot) => {
             let temp = [];
             snapshot.docs.forEach((doc) => {
                 temp.push({ ...doc.data(), id: doc.id });
             });
+            setLoading(false);
             setTasks(temp);
             setTasksAll(temp);
         });
@@ -39,11 +43,13 @@ const App = () => {
 
     const changeTheme = (newTheme) => setTheme(newTheme);
 
-    const getAllTasks = () => setTasks(TasksAll);
+    const getAllTasks = () => (setTasks(TasksAll), setCurrentFilter("all"));
 
-    const getActiveTasks = (activeTasks) => setTasks(activeTasks);
+    const getActiveTasks = (activeTasks) => (setTasks(activeTasks), setCurrentFilter("active"));
 
-    const getCompletedTasks = (completedTasks) => setTasks(completedTasks);
+    const getCompletedTasks = (completedTasks) => (setTasks(completedTasks), setCurrentFilter("completed"));
+
+    const reset = (isReset) => setReset(isReset);
 
     return (
         <>
@@ -53,16 +59,23 @@ const App = () => {
             <img src={HeaderLightMobile} className="img-light-mobile" alt="mobile hader light" />
             <div className={"content " + Theme}>
                 <HeaderComponent changeTheme={changeTheme} />
-                <AddComponent countTask={Tasks.length} />
-                <MsgComponent />
-                <ListComponent list={Tasks} completedItems={setCompleted} msg={Msg} />
+                <AddComponent countTask={Tasks.length} setReset={reset} reset={Reset} />
+                {Loading ?
+                    <div className="loading">
+                        <h2>Loading...</h2>
+                        <BiLoaderAlt className="icon-loading" />
+                    </div>
+                    : null}
+                <MsgComponent tasks={Tasks} filter={CurrentFilter} loading={Loading} />
+                <ListComponent list={Tasks} completedItems={setCompleted} />
                 <ConfigComponent
                     numTasks={Tasks.length}
                     completed={Id}
                     staticTasks={TasksAll}
                     getAll={getAllTasks}
                     getActive={getActiveTasks}
-                    getCompleted={getCompletedTasks} />
+                    getCompleted={getCompletedTasks}
+                    reset={Reset} />
                 <FooterComponent />
             </div>
         </>

@@ -18,10 +18,20 @@
             cursor: pointer;
             &:hover {
                 color: rgba(255, 255, 255, 0.857);
+                animation: circle 1s forwards;
             }
             &:active {
                 transform: scale(0.8);
             }
         }
+    }
+}
+
+@keyframes circle {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
     }
 }

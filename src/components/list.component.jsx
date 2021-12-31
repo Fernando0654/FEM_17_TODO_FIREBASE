@@ -3,13 +3,18 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 // Icon
 import { BsCheck } from "react-icons/bs";
 import { VscChromeClose } from "react-icons/vsc";
+// Firebase
+import { deleteDoc, doc } from 'firebase/firestore';
+import store from '../firebase/firebase.config';
 
-const List = ({ list, completedItems, msg }) => {
+const List = ({ list, completedItems }) => {
     const [List, setList] = useState(null);
     const [Completed, setCompleted] = useState([]);
+    
     useEffect(() => {
         setList(list);
     }, [list]);
+
     useEffect(() => {
         completedItems(Completed);
     }, [Completed]);
@@ -51,6 +56,10 @@ const List = ({ list, completedItems, msg }) => {
         setCompleted([...Completed, e.target.id]);
     }
 
+    const deleteTask = (id) => {
+        deleteDoc(doc(store, "tasks", id));
+    }
+
     return (
         List ?
             <DragDropContext onDragEnd={(result => handleDrag(result))}>
@@ -81,7 +90,9 @@ const List = ({ list, completedItems, msg }) => {
                                                 <BsCheck className="icon" />
                                                 <span>{task.task}</span>
                                             </label>
-                                            <VscChromeClose className="icon-close" />
+                                            <VscChromeClose 
+                                            className="icon-close"
+                                            onClick={() => deleteTask(task.id)} />
                                         </div>
                                     )}
                                 </Draggable>

@@ -4,7 +4,7 @@ html,
 body {
     margin: 0;
     padding: 0;
-    box-sizing: 0;
+    box-sizing: border-box;
     background-color: color.$veryDarkBlue;
     font-size: 18px;
     min-height: 100vh;
@@ -71,6 +71,25 @@ main {
     &.dark {
         .img-dark-mobile {
             display: block;
+        }
+    }
+    .loading {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        background-color: color.$veryDarkBlue;
+        padding: 1em 0em;
+        font-family: "Josefin Sans", sans-serif;
+        color: #fff;
+        margin-top: 1em;
+        h2 {
+            margin: 0;
+            font-size: 1rem;
+        }
+        .icon-loading {
+            animation: circle 0.5s infinite;
         }
     }
 }

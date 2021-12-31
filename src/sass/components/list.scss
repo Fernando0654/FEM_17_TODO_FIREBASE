@@ -34,6 +34,7 @@
                 border-radius: 150px;
                 margin-left: 0.8em;
                 color: color.$veryDarkDesaturatedBlue;
+                cursor: pointer;
             }
             span {
                 font-size: 0.8rem;
@@ -44,7 +45,12 @@
             display: none;
             opacity: 0;
             &:checked + label .icon{
-                background-color: rgb(105, 105, 194);
+                background-color: color.$checkBackground;
+                color: white;
+            }
+            &:checked + label {
+                text-decoration: line-through;
+                color: gray;
             }
         }
         .icon-close {
@@ -53,12 +59,14 @@
             top: 50%;
             transform: translate(-50%, -50%);
             color: color.$veryDarkGrayishBlue;
+            cursor: pointer;
         }
     }
 }
 
 .content.light {
     .list-task {
+        box-shadow: 0px 0px 15px rgba(143, 121, 121, 0.515);
         .task-item {
             color: color.$veryDarkGrayishBlue;
             label {
@@ -68,6 +76,7 @@
             }
             .icon {
                 color: color.$veryLightGray;
+                border: 1px solid rgb(175, 162, 162);
             }
         }
     }

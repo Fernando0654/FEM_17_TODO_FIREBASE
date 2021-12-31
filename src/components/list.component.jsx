@@ -4,7 +4,7 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { BsCheck } from "react-icons/bs";
 import { VscChromeClose } from "react-icons/vsc";
 
-const List = ({ list, completedItems }) => {
+const List = ({ list, completedItems, msg }) => {
     const [List, setList] = useState(null);
     const [Completed, setCompleted] = useState([]);
     useEffect(() => {
@@ -35,10 +35,22 @@ const List = ({ list, completedItems }) => {
             if (index > -1) {
                 Completed.splice(index, 1);
             }
+            list.map(item => {
+                if (item.id === e.target.id) {
+                    item.completed = !item.completed;
+                }
+            })
             return;
         }
+        list.map(item => {
+            if (item.id === e.target.id) {
+                item.completed = !item.completed;
+            }
+        })
+        console.log(list)
         setCompleted([...Completed, e.target.id]);
     }
+
     return (
         List ?
             <DragDropContext onDragEnd={(result => handleDrag(result))}>
@@ -80,7 +92,7 @@ const List = ({ list, completedItems }) => {
                     }
                 </Droppable>
             </DragDropContext>
-            : null
+            : <span>Loading...</span>
     )
 }
 

@@ -10,6 +10,7 @@ import ListComponent from "./components/list.component";
 import ConfigComponent from "./components/config.component";
 import HeaderComponent from "./components/header.component";
 import FooterComponent from "./components/footer.component";
+import MsgComponent from "./components/msg.component";
 // Img
 import HeaderDarkMobile from "./assets/img/bg-mobile-dark.jpg";
 import HeaderDarkDesktop from "./assets/img/bg-desktop-dark.jpg";
@@ -18,8 +19,11 @@ import HeaderLightDesktop from "./assets/img/bg-desktop-light.jpg";
 
 const App = () => {
     const [Tasks, setTasks] = useState([]);
+    const [TasksAll, setTasksAll] = useState([]);
     const [Theme, setTheme] = useState("dark");
     const [Id, setId] = useState(null);
+    const [CurrentFilter, setCurrentFilter] = useState("");
+    const [Msg, setMsg] = useState(null);
     useEffect(() => {
         onSnapshot(collection(store, "tasks"), (snapshot) => {
             let temp = [];
@@ -27,12 +31,19 @@ const App = () => {
                 temp.push({ ...doc.data(), id: doc.id });
             });
             setTasks(temp);
-            // setTasks(snapshot.docs.map(doc => (doc.data())));
+            setTasksAll(temp);
         });
     }, []);
-    const setCompleted = (newId) => (setId(newId));
 
-    const changeTheme = (newTheme) => (setTheme(newTheme));
+    const setCompleted = (newId) => setId(newId);
+
+    const changeTheme = (newTheme) => setTheme(newTheme);
+
+    const getAllTasks = () => setTasks(TasksAll);
+
+    const getActiveTasks = (activeTasks) => setTasks(activeTasks);
+
+    const getCompletedTasks = (completedTasks) => setTasks(completedTasks);
 
     return (
         <>
@@ -43,8 +54,15 @@ const App = () => {
             <div className={"content " + Theme}>
                 <HeaderComponent changeTheme={changeTheme} />
                 <AddComponent countTask={Tasks.length} />
-                <ListComponent list={Tasks} completedItems={setCompleted} />
-                <ConfigComponent numTasks={Tasks.length} completed={Id} />
+                <MsgComponent />
+                <ListComponent list={Tasks} completedItems={setCompleted} msg={Msg} />
+                <ConfigComponent
+                    numTasks={Tasks.length}
+                    completed={Id}
+                    staticTasks={TasksAll}
+                    getAll={getAllTasks}
+                    getActive={getActiveTasks}
+                    getCompleted={getCompletedTasks} />
                 <FooterComponent />
             </div>
         </>

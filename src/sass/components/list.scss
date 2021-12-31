@@ -37,8 +37,11 @@
                 cursor: pointer;
             }
             span {
+                width: 50%;
                 font-size: 0.8rem;
                 font-weight: 700;
+                text-overflow: ellipsis;
+            overflow: hidden;
             }
         }
         input[type="checkbox"] {
@@ -73,6 +76,9 @@
                 border-top: color.$darkGrayishBlue;
                 background-color: color.$veryLightGray;
                 color: color.$darkGrayishBlue;
+                span {
+                    width: 90%;
+                }
             }
             .icon {
                 color: color.$veryLightGray;

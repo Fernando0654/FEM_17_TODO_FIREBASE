@@ -36,6 +36,13 @@ const App = () => {
             setLoading(false);
             setTasks(temp);
             setTasksAll(temp);
+
+            const completed = temp.filter((task) => task.completed);
+            let arrCompleted = [];
+            completed.forEach((item) => {
+                arrCompleted.push(item.id);
+            });
+            setCompleted(arrCompleted);
         });
     }, []);
 
@@ -67,7 +74,7 @@ const App = () => {
                     </div>
                     : null}
                 <MsgComponent tasks={Tasks} filter={CurrentFilter} loading={Loading} />
-                <ListComponent list={Tasks} completedItems={setCompleted} />
+                <ListComponent list={Tasks} />
                 <ConfigComponent
                     numTasks={Tasks.length}
                     completed={Id}

@@ -4,20 +4,16 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { BsCheck } from "react-icons/bs";
 import { VscChromeClose } from "react-icons/vsc";
 // Firebase
-import { deleteDoc, doc } from 'firebase/firestore';
+import { deleteDoc, updateDoc, doc } from 'firebase/firestore';
 import store from '../firebase/firebase.config';
 
-const List = ({ list, completedItems }) => {
+const List = ({ list }) => {
     const [List, setList] = useState(null);
     const [Completed, setCompleted] = useState([]);
     
     useEffect(() => {
         setList(list);
     }, [list]);
-
-    useEffect(() => {
-        completedItems(Completed);
-    }, [Completed]);
 
     const handleDrag = (result) => {
         const { source, destination } = result;
@@ -34,26 +30,9 @@ const List = ({ list, completedItems }) => {
         return result;
     }
 
-    const updateCompleted = (e) => {
-        if (!e.target.checked) {
-            const index = Completed.indexOf(e.target.id);
-            if (index > -1) {
-                Completed.splice(index, 1);
-            }
-            list.map(item => {
-                if (item.id === e.target.id) {
-                    item.completed = !item.completed;
-                }
-            })
-            return;
-        }
-        list.map(item => {
-            if (item.id === e.target.id) {
-                item.completed = !item.completed;
-            }
-        })
-        console.log(list)
-        setCompleted([...Completed, e.target.id]);
+    const updateCompleted = async (e) => {
+        const taskRef = doc(store, "tasks", e.target.id);
+        await updateDoc(taskRef, {completed: e.target.checked});
     }
 
     const deleteTask = (id) => {

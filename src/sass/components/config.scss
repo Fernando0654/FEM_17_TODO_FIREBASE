@@ -51,6 +51,15 @@
             color: color.$darkGrayishBlue;
             font-weight: 700;
             cursor: pointer;
+            &:last-child {
+                margin-right: 2em;
+            }
+            &:hover {
+                color: color.$veryLightGray;
+            }
+            &.active {
+                color: #0074d9;
+            }
         }
     }
 }
@@ -67,7 +76,8 @@
             background-color: transparent;
             border: none;
             top: 0;
-            span, .delete-items {
+            span,
+            .delete-items {
                 position: absolute;
                 width: 28%;
                 top: 50%;
@@ -91,15 +101,6 @@
             transform: translate(-50%, 0%);
             button {
                 font-size: 0.8rem;
-                &:last-child {
-                    margin-right: 2em;
-                }
-                &:hover {
-                    color: color.$veryLightGray;
-                }
-                &.active {
-                    color: #0074d9;
-                }
             }
         }
     }

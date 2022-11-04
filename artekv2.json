@@ -1,0 +1,227 @@
+[
+    {
+        "id": 1,
+        "carrera": "INA",
+        "grupos": [
+            {
+                "nombre": "INA0122",
+                "asignaturas": [
+                    "Programación orientada a eventos",
+                    "Procesamiento Digital de Imágenes",
+                    "Sistemas Expertos"
+                ],
+                "profesores": [
+                    "Alfaro Martínez Fabiola",
+                    "Ortiz Castillo Marco Antonio",
+                    "Maldonado Loyo Héctor"
+                ],
+                "links": [
+                    "https://docs.google.com/forms/d/e/1FAIpQLSdhgx49B2o1ubB9IndIcNATWJzWSgsXPxlv9bJlOKmwpN1yvg/viewform?usp=sf_link",
+                    "https://docs.google.com/forms/d/e/1FAIpQLSdSpYvku_ZYNhSSPSZIzgWyqMLqgRqodMUSt-fjoLWibLj-FQ/viewform?usp=sf_link",
+                    "https://docs.google.com/forms/d/e/1FAIpQLSdK_cGqfZZDP1TNSUY_jtJ4BsLYi3bCRulQ1GfvEZ749WDOug/viewform?usp=sf_link"
+                ]
+            },
+            {
+                "nombre": "INA0722",
+                "asignaturas": [
+                    "Álgebra Lineal",
+                    "Fundamentos de la Administración",
+                    "Programación estructurada",
+                    "Probabilidad",
+                    "Matemáticas Discretas"
+                ],
+                "profesores": [
+                    "Mendiola López Luis Octavio",
+                    "Ortega Cué Luis Guillermo",
+                    "García Rodríguez Marco Antonio",
+                    "Arroyo Cosultchi Gabriel",
+                    "Maldonado Loyo Héctor"
+                ],
+                "links": [
+                    "https://docs.google.com/forms/d/e/1FAIpQLSc4s_vYfzX3YxS4zJ8UhkgoqfG_avtHjtNGdSuKk1BdTUQGbg/viewform?usp=sf_link",
+                    "https://docs.google.com/forms/d/e/1FAIpQLSfIxrx-5kgJ6TTXQJdO7NapefYdkzVblxbuOgX_Nm_v9EOQLA/viewform?usp=sf_link",
+                    "https://docs.google.com/forms/d/e/1FAIpQLSfDda1TCCt1_W4w5FwcJstmxa88vBw6nuOpJUSOgB9XwYS9oQ/viewform?usp=sf_link",
+                    "https://docs.google.com/forms/d/e/1FAIpQLSdXR137nrQvOFm6UYwSY6j8zmPsZQvsme9PJ0OODZ9CkFAb6A/viewform?usp=sf_link",
+                    "https://docs.google.com/forms/d/e/1FAIpQLSdK_cGqfZZDP1TNSUY_jtJ4BsLYi3bCRulQ1GfvEZ749WDOug/viewform?usp=sf_link"
+                ]
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "carrera": "CIA",
+        "grupos": [
+            {
+                "nombre": "CIA1022",
+                "asignaturas": [
+                    "Introducción a las Redes de Computadoras y Sistemas Operativos",
+                    "Matemáticas Básicas",
+                    "Psicología de la Comunicación Actual",
+                    "Fundamentos de la Administración"
+                ],
+                "profesores": [
+                    "Alfaro Martínez Fabiola",
+                    "Mendiola López Luis Octavio",
+                    "Molina Saucedo Luz Edith",
+                    "Ortega Cué Luis Guillermo"
+                ],
+                "links": [
+                    "https://docs.google.com/forms/d/e/1FAIpQLSdhgx49B2o1ubB9IndIcNATWJzWSgsXPxlv9bJlOKmwpN1yvg/viewform?usp=sf_link",
+                    "https://docs.google.com/forms/d/e/1FAIpQLSc4s_vYfzX3YxS4zJ8UhkgoqfG_avtHjtNGdSuKk1BdTUQGbg/viewform?usp=sf_link",
+                    "https://docs.google.com/forms/d/e/1FAIpQLSdUuqmNuXboBXPhqVHWsyYmYu19IaOxfikH7hom1pVdWLvpxQ/viewform?usp=sf_link",
+                    "https://docs.google.com/forms/d/e/1FAIpQLSfIxrx-5kgJ6TTXQJdO7NapefYdkzVblxbuOgX_Nm_v9EOQLA/viewform?usp=sf_link"
+                ]
+            },
+            {
+                "nombre": "CIA1021",
+                "asignaturas": [
+                    "Seguridad en Bases de Datos",
+                    "Vulnerabilidades en la Programación",
+                    "Criptografía I",
+                    "Probabilidad y estadística",
+                    "Modelado de negocios"
+                ],
+                "profesores": [
+                    "Calvillo Pérez Juan Angel",
+                    "Curiel Obregón Andrea Verónica",
+                    "Mendiola López Luis Octavio",
+                    "Ortiz Castillo Marco Antonio",
+                    "Robles Camacho Tamara"
+                ],
+                "links": [
+                    "https://docs.google.com/forms/d/e/1FAIpQLSfWfUK4xM1ZNWmWnU74f5D8nsnFRMOnn4yB7qm5ZSOt91Ghbw/viewform?usp=sf_link",
+                    "https://docs.google.com/forms/d/e/1FAIpQLSf5GmP8-rVWQO0DyndhGOKbq8c17ukyD90uDYYzUgiCCHmZ5g/viewform?usp=sf_link",
+                    "https://docs.google.com/forms/d/e/1FAIpQLSc4s_vYfzX3YxS4zJ8UhkgoqfG_avtHjtNGdSuKk1BdTUQGbg/viewform?usp=sf_link",
+                    "https://docs.google.com/forms/d/e/1FAIpQLSdSpYvku_ZYNhSSPSZIzgWyqMLqgRqodMUSt-fjoLWibLj-FQ/viewform?usp=sf_link",
+                    "https://docs.google.com/forms/d/e/1FAIpQLSer4svMCPHvv5pV8NxK8Wh7rde8VjS1oUV541jw14SWVskAQA/viewform?usp=sf_link"
+                ]
+            },
+            {
+                "nombre": "CIA0122",
+                "asignaturas": [
+                    "Seguridad en la Nube",
+                    "Gestión de Estructuras Organizaciónales",
+                    "Matemáticas Aplicadas a la Computación",
+                    "Cálculo Diferencial e Integral"
+                ],
+                "profesores": [
+                    "Juárez Sandoval Daniel",
+                    "Ortega Cué Luis Guillermo",
+                    "Ortiz Castillo Marco Antonio",
+                    "Pérez Munguía Néstor Darwin"
+                ],
+                "links": [
+                    "https://docs.google.com/forms/d/e/1FAIpQLSdOwWYX37cxRY-mAf4vQCUCoOuGxzM69tbAwAlJpKQUTr4_2g/viewform?usp=sf_link",
+                    "https://docs.google.com/forms/d/e/1FAIpQLSfIxrx-5kgJ6TTXQJdO7NapefYdkzVblxbuOgX_Nm_v9EOQLA/viewform?usp=sf_link",
+                    "https://docs.google.com/forms/d/e/1FAIpQLSdSpYvku_ZYNhSSPSZIzgWyqMLqgRqodMUSt-fjoLWibLj-FQ/viewform?usp=sf_link",
+                    "https://docs.google.com/forms/d/e/1FAIpQLSerK3cFh9R2IXldyurEiv_Cuz646Yow1AMIruKiTWak22HLaw/viewform?usp=sf_link"
+                ]
+            },
+            {
+                "nombre": "CIA0722",
+                "asignaturas": [
+                    "Arquitectura de Sistemas de Seguridad Física",
+                    "Fundamentos de Investigación de Mercados",
+                    "Matemáticas Discretas"
+                ],
+                "profesores": [
+                    "Mendiola López Luis Octavio",
+                    "Ortega Cué Luis Guillermo",
+                    "Maldonado Loyo Héctor"
+                ],
+                "links": [
+                    "https://docs.google.com/forms/d/e/1FAIpQLSc4s_vYfzX3YxS4zJ8UhkgoqfG_avtHjtNGdSuKk1BdTUQGbg/viewform?usp=sf_link",
+                    "https://docs.google.com/forms/d/e/1FAIpQLSfIxrx-5kgJ6TTXQJdO7NapefYdkzVblxbuOgX_Nm_v9EOQLA/viewform?usp=sf_link",
+                    "https://docs.google.com/forms/d/e/1FAIpQLSdK_cGqfZZDP1TNSUY_jtJ4BsLYi3bCRulQ1GfvEZ749WDOug/viewform?usp=sf_link"
+                ]
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "carrera": "PRV",
+        "grupos": [
+            {
+                "nombre": "PRV1021",
+                "asignaturas": [
+                    "Programación Orientada a Objetos I",
+                    "Modelado de negocios",
+                    "Sistemas de Scripting",
+                    "Física para videojuegos I",
+                    "Redes y Base de Datos"
+                ],
+                "profesores": [
+                    "Calvillo Pérez Juan Angel",
+                    "Robles Camacho Tamara",
+                    "García Rodríguez Marco Antonio",
+                    "Trejo Pérez Rogelio",
+                    "Zambrano González Silverio"
+                ],
+                "links": [
+                    "https://docs.google.com/forms/d/e/1FAIpQLSfWfUK4xM1ZNWmWnU74f5D8nsnFRMOnn4yB7qm5ZSOt91Ghbw/viewform?usp=sf_link",
+                    "https://docs.google.com/forms/d/e/1FAIpQLSer4svMCPHvv5pV8NxK8Wh7rde8VjS1oUV541jw14SWVskAQA/viewform?usp=sf_link",
+                    "https://docs.google.com/forms/d/e/1FAIpQLSfDda1TCCt1_W4w5FwcJstmxa88vBw6nuOpJUSOgB9XwYS9oQ/viewform?usp=sf_link",
+                    "https://docs.google.com/forms/d/e/1FAIpQLSfViMjwuRiCsh_jJQWoY72WBhleel1F8yPdUc7x7hrof34cKQ/viewform?usp=sf_link",
+                    "https://docs.google.com/forms/d/e/1FAIpQLSceZpQgTz8Wa4uuqFp-9JEK2WSA5hlMAXFm4oQZAX9zfZh63w/viewform?usp=sf_link"
+                ]
+            },
+            {
+                "nombre": "PRV0722",
+                "asignaturas": [
+                    "Matemáticas Discretas",
+                    "Semiótica",
+                    "Fundamentos de Programación",
+                    "Matemáticas II"
+                ],
+                "profesores": [
+                    "Mendiola López Luis Octavio",
+                    "Ortega Cué Luis Guillermo",
+                    "Trejo Pérez Rogelio",
+                    "Pérez Munguía Néstor Darwin"
+                ],
+                "links": [
+                    "https://docs.google.com/forms/d/e/1FAIpQLSc4s_vYfzX3YxS4zJ8UhkgoqfG_avtHjtNGdSuKk1BdTUQGbg/viewform?usp=sf_link",
+                    "https://docs.google.com/forms/d/e/1FAIpQLSfIxrx-5kgJ6TTXQJdO7NapefYdkzVblxbuOgX_Nm_v9EOQLA/viewform?usp=sf_link",
+                    "https://docs.google.com/forms/d/e/1FAIpQLSfViMjwuRiCsh_jJQWoY72WBhleel1F8yPdUc7x7hrof34cKQ/viewform?usp=sf_link",
+                    "https://docs.google.com/forms/d/e/1FAIpQLSerK3cFh9R2IXldyurEiv_Cuz646Yow1AMIruKiTWak22HLaw/viewform?usp=sf_link"
+                ]
+            },
+            {
+                "nombre": "PRV1022",
+                "asignaturas": [
+                    "Matemáticas I",
+                    "Sistemas Lúdicos",
+                    "Introducción a los Motores de Juego",
+                    "La Industria del Videojuego"
+                ],
+                "profesores": [
+                    "Pérez Munguía Néstor Darwin",
+                    "García Rodríguez Marco Antonio",
+                    "Jiménez Esquivel Pablo Luis",
+                    "Ortigoza Ramos Josúe"
+                ],
+                "links": [
+                    "https://docs.google.com/forms/d/e/1FAIpQLSerK3cFh9R2IXldyurEiv_Cuz646Yow1AMIruKiTWak22HLaw/viewform?usp=sf_link",
+                    "https://docs.google.com/forms/d/e/1FAIpQLSfDda1TCCt1_W4w5FwcJstmxa88vBw6nuOpJUSOgB9XwYS9oQ/viewform?usp=sf_link",
+                    "https://docs.google.com/forms/d/e/1FAIpQLSemfzxvgX-9NMnGlW0LN2aMuekDbo9pMP3aPUQJngSHRAsVCQ/viewform?usp=sf_link",
+                    "https://docs.google.com/forms/d/e/1FAIpQLSdJ74ITNZCCHIRuDE8-9anvI2pzG9v8cyEeH6tVn73BdLI8iQ/viewform?usp=sf_link"
+                ]
+            },
+            {
+                "nombre": "PRV0122",
+                "asignaturas": [
+                    "Gestión de Estructuras Organizaciónales",
+                    "Programación Estructurada II"
+                ],
+                "profesores": [
+                    "Robles Camacho Tamara",
+                    "Trejo Pérez Rogelio"
+                ],
+                "links": [
+                    "https://docs.google.com/forms/d/e/1FAIpQLSer4svMCPHvv5pV8NxK8Wh7rde8VjS1oUV541jw14SWVskAQA/viewform?usp=sf_link",
+                    "https://docs.google.com/forms/d/e/1FAIpQLSfViMjwuRiCsh_jJQWoY72WBhleel1F8yPdUc7x7hrof34cKQ/viewform?usp=sf_link"
+                ]
+            }
+        ]
+    }
+]
